@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>工业控制综合工作台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #e2e8f0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            color: #f8fafc;
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+
+        .header p {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 14px 20px 14px 50px;
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid #334155;
+            border-radius: 10px;
+            color: #e2e8f0;
+            font-size: 15px;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .search-box input:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .search-box::before {
+            content: "🔍";
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 16px;
+            opacity: 0.6;
+        }
+
+        .category {
+            margin-bottom: 36px;
+        }
+
+        .category-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #94a3b8;
+            margin-bottom: 16px;
+            padding-left: 12px;
+            border-left: 3px solid #3b82f6;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .category-title .count {
+            background: rgba(59, 130, 246, 0.15);
+            color: #60a5fa;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: normal;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 16px;
+        }
+
+        .tool-card {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid #334155;
+            border-radius: 10px;
+            padding: 20px;
+            text-decoration: none;
+            color: #e2e8f0;
+            transition: all 0.25s;
+            display: block;
+        }
+
+        .tool-card:hover {
+            border-color: #3b82f6;
+            background: rgba(30, 41, 59, 0.9);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
+        }
+
+        .tool-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #f1f5f9;
+        }
+
+        .tool-card p {
+            font-size: 13px;
+            color: #94a3b8;
+            line-height: 1.5;
+        }
+
+        .tool-card .tag {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 3px 10px;
+            background: rgba(16, 185, 129, 0.1);
+            color: #34d399;
+            border-radius: 4px;
+            font-size: 11px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        @media (max-width: 640px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            .header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⚙️ 工业控制综合工作台</h1>
+            <p>嵌入式调试 · 设备监控 · 生产管理 工具集合</p>
+        </div>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="搜索工具名称或功能...">
+        </div>
+
+        <div class="category">
+            <div class="category-title">
+                串口调试工具 <span class="count">1</span>
+            </div>
+            <div class="cards-grid">
+                <a href="./serial-debug/serial-debug-tool.html" class="tool-card">
+                    <h3>串口调试专家</h3>
+                    <p>通用串口数据收发调试，支持数据监控与日志记录</p>
+                    <span class="tag">Serial</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="category">
+            <div class="category-title">
+                STM32售货机控制台 <span class="count">3</span>
+            </div>
+            <div class="cards-grid">
+                <a href="./stm32-vending/v93-light-control.html" class="tool-card">
+                    <h3>V93 前门灯控手动版</h3>
+                    <p>手动控制前门灯与设备IO状态，基础调试版本</p>
+                    <span class="tag">STM32</span>
+                </a>
+                <a href="./stm32-vending/v94-register-monitor.html" class="tool-card">
+                    <h3>V94 实时寄存器监控版</h3>
+                    <p>寄存器数值实时可视化监控，带数据曲线</p>
+                    <span class="tag">STM32</span>
+                </a>
+                <a href="./stm32-vending/v99-precise-position.html" class="tool-card">
+                    <h3>V99 精准定位版</h3>
+                    <p>货道精准定位与步进电机控制，生产使用版本</p>
+                    <span class="tag">STM32</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="category">
+            <div class="category-title">
+                RS485 / Modbus 工具 <span class="count">2</span>
+            </div>
+            <div class="cards-grid">
+                <a href="./rs485-modbus/temp-humidity-monitor.html" class="tool-card">
+                    <h3>温湿度探头实时监控台</h3>
+                    <p>RS485温湿度传感器实时数据采集与监控</p>
+                    <span class="tag">RS485</span>
+                </a>
+                <a href="./rs485-modbus/modbus06-lock-control.html" class="tool-card">
+                    <h3>Modbus06多板锁控系统</h3>
+                    <p>固定寄存器06指令，多板联动锁控管理</p>
+                    <span class="tag">Modbus</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="category">
+            <div class="category-title">
+                生产管理工具 <span class="count">1</span>
+            </div>
+            <div class="cards-grid">
+                <a href="./production-tools/ot-overtime-control.html" class="tool-card">
+                    <h3>加班调休控制台</h3>
+                    <p>OT-CONTROL 加班时长与调休记录管理系统</p>
+                    <span class="tag">Production</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="category">
+            <div class="category-title">
+                设备监控系统 <span class="count">1</span>
+            </div>
+            <div class="cards-grid">
+                <a href="./device-monitor/zdt-gripper-torque-v54.html" class="tool-card">
+                    <h3>夹爪力矩实时监控 V54</h3>
+                    <p>ZDT夹爪力矩采样频率可调，实时数据监控</p>
+                    <span class="tag">Monitor</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="category">
+            <div class="category-title">
+                其他工具 <span class="count">1</span>
+            </div>
+            <div class="cards-grid">
+                <a href="./other-tools/plasma-furnace-tool.html" class="tool-card">
+                    <h3>等离子能量熔炉</h3>
+                    <p>黄金午休律动版，趣味调试小工具</p>
+                    <span class="tag">Fun</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer">
+            Industrial Workbench · 共 9 个工具 · 本地部署 · 数据不上传
+        </div>
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const cards = document.querySelectorAll('.tool-card');
+
+        searchInput.addEventListener('input', function(e) {
+            const keyword = e.target.value.toLowerCase().trim();
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                const category = card.closest('.category');
+                if (text.includes(keyword)) {
+                    card.style.display = 'block';
+                    if (category) category.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // 隐藏空分类
+            document.querySelectorAll('.category').forEach(cat => {
+                const visibleCards = cat.querySelectorAll('.tool-card:not([style*="display: none"])');
+                cat.style.display = visibleCards.length > 0 ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
